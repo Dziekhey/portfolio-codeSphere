@@ -1,9 +1,9 @@
 import {Router} from "express"
-import db from "../../db/team.connection.js"
+import db from "../db/connection.js"
 import { ObjectId } from "mongodb";
 
 const router = Router()
-const PROJECT_COLLECTION = db.collection('team-projects')
+const PROJECT_COLLECTION = db.collection('projects')
 
 // Endpoint for getting a list of projects
 router.get('/', async (req, res) => {

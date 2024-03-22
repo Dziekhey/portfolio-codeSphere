@@ -1,9 +1,9 @@
 import {Router} from "express"
-import db from "../../db/team.connection.js"
+import db from "../db/connection.js"
 import { ObjectId } from "mongodb";
 
 const router = Router()
-const ACHIEVEMENTS_COLLECTION = db.collection('team-achievements')
+const ACHIEVEMENTS_COLLECTION = db.collection('achievements')
 
 // Endpoint for getting list of achievements
 router.get('/', async(req, res) => {

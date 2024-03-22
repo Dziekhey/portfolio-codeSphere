@@ -1,9 +1,9 @@
 import { MongoClient} from "mongodb";
 
-const uri = process.env.PRILA_ATLAS_URI|| "";
+const uri = process.env.ATLAS_URI || "";
 const client = new MongoClient(uri);
 
-const DATABASE_NAME = 'prila_db';
+const DATABASE_NAME = 'team_db';
 
 try {
     await client.connect();
