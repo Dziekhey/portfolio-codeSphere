@@ -1,11 +1,11 @@
 import './App.css'
-import SandraPage from './pages/Individual/SandraPage'
+
 
 function App() {
 
   return (
     <>
-    
+
     </>
   )
 }
