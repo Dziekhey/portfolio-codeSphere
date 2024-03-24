@@ -1,10 +1,11 @@
 import './App.css'
+import SandraPage from './pages/Individual/SandraPage'
 
 function App() {
 
   return (
     <>
-     <h1>Hello world</h1>
+    <SandraPage />
     </>
   )
 }
