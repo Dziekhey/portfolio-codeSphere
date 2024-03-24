@@ -1,10 +1,16 @@
 import './App.css'
+import Banner from './sections/banner/Banner'
+
+
+
+import Navbar from './sections/navbar/Navbar'
 
 function App() {
 
   return (
     <>
-     <h1>Hello world</h1>
+     <Navbar />
+     <Banner />
     </>
   )
 }
