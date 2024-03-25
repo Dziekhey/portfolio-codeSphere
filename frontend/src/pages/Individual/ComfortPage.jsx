@@ -1,9 +1,10 @@
-import React from 'react'
+import React ,{useEffect, useState} from 'react'
 import Compic from '../../assets/Compic.jpg';
 import ImgCard from "../../components/ImgCard.jsx";
 import Skills from "../../components/Skills.jsx";
 import Experiences from "../../components/Experiences.jsx";
 import "./individual.css";
+import { apiGetAllSkills, apiUserSkills } from '../../services/skills.services.js';
 
 
 const ComfortPage = () => {
@@ -50,6 +51,22 @@ const ComfortPage = () => {
       user_id: "Sandra",
     },
   ];
+
+  const [comskills, setComskills] = useState([])
+  const [loading, setLoading] = useState(false);
+
+  const fetchData = async () => {
+    try {
+      const skills = await apiGetAllSkills();
+      console.log(skills.data);
+      setComskills(skills.data)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   return (
     <div id="bg">
