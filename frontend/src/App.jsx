@@ -1,6 +1,7 @@
 import './App.css'
-import AchievementCard from './components/AchievementCard'
 import ComfortPage from './pages/Individual/ComfortPage'
+import Admin from './pages/admin/Admin'
+
 
 
 
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <>
-    <AchievementCard />
+   <Admin />
     </>
   )
 }

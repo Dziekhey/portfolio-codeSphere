@@ -2,6 +2,7 @@ import { Router } from "express";
 import db from "../db/connection.js";
 import { ObjectId } from "mongodb";
 
+
 const router = Router();
 const SKILLS_COLLECTION = db.collection("skills");
 

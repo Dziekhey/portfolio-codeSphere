@@ -1,6 +1,9 @@
 import {Router} from "express"
 import db from "../db/connection.js"
 import { ObjectId } from "mongodb";
+import multer from 'multer';
+
+const upload = multer({dest: 'uploads'});
 
 const router = Router()
 const BLOGS_COLLECTION = db.collection('blogs')
@@ -12,12 +15,12 @@ router.get('/', async(req, res) => {
 });
 
 // Endpoint for adding a single skill
-router.post('/', async(req, res) => {
+router.post('/', upload.single('image'), async(req, res) => {
     try {
         let newBlogs = {
             title: req.body.title,
             summary: req.body.summary,
-            cover_image: req.body.cover_image,
+            image: req.body.image,
             link: req.body.link
         }
         let result = await SKILLS_COLLECTION.insertOne(newBlogs);
