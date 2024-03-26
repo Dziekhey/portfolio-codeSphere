@@ -1,12 +1,16 @@
 import './App.css'
+import { Contact } from './sections/contact/Contact'
 import { Projects } from './sections/projects/projects'
+
 
 function App() {
 
   return (
     <>
-     <h1>Hello world</h1>
-     <Projects/>
+     
+     <Projects/> 
+  
+     <Contact/>
     </>
   )
 }
