@@ -3,7 +3,7 @@ import db from "../db/connection.js"
 import { ObjectId } from "mongodb";
 
 const router = Router()
-const BLOGS_COLLECTION = db.collection('skills')
+const BLOGS_COLLECTION = db.collection('blogs')
 
 // Endpoint for getting list of skills
 router.get('/', async(req, res) => {

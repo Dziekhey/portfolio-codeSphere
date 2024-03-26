@@ -4,7 +4,7 @@ export const apiGetAllSkills = async () => {
     return apiClient.get("/skills");
 };
 
-export const apiUserSkills = async (user_id) => {
+export const apiGetUserSkills = async (user_id) => {
     return apiClient.get(`/skills/${user_id}`);
   };
   

@@ -7,7 +7,7 @@ import Experiences from "../../components/Experiences.jsx";
 import "./individual.css";
 import {
   apiGetAllSkills,
-  apiUserSkills,
+  apiGetUserSkills,
 } from "../../services/skills.services.js";
 
 const ComfortPage = () => {
@@ -57,30 +57,35 @@ const ComfortPage = () => {
   const SkillData = [
     {
       skill: "Javascript",
+      proficiency: "20%",
+    },
+    {
+      skill: "CSS",
       proficiency: "80%",
     },
     {
-      skill: "Javascript",
-      proficiency: "80%",
+      skill: "bootsrap",
+      proficiency: "10%",
     },
     {
-      skill: "Javascript",
-      proficiency: "80%",
-    },
-    {
-      skill: "Javascript",
-      proficiency: "80%",
+      skill: "React",
+      proficiency: "50%",
     },
   ];
 
   const [comskills, setComskills] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const fetchData = async () => {
+  const fetchData = async (Comfort) => {
     try {
-      const skills = await apiGetAllSkills();
-      console.log(skills.data);
-      setComskills(skills.data);
+      setLoading(true);
+      const skills = await apiGetUserSkills("Comfort");
+      // console.log(skills.data);
+      const data = skills.data.filter(
+        (res) => res?.type === "Programming Languages and Libraries"
+      );
+      console.log(data);
+      setComskills(data);
     } catch (error) {
       console.error(error);
     }
@@ -137,12 +142,12 @@ const ComfortPage = () => {
                 Features
               </p>
               <h2 className="text-3xl md:text-4xl font-bold">
-                Programming Languages and Liberies
+                Programming Languages and Libraries
               </h2>
             </div>
             <div className="w-full lgl:w-1/2">
             {
-              SkillData.length>0 && SkillData.map((data, index) => (<Skills key={index} skills={data}/>))
+            comskills.length>0 && comskills.map((data) => (<Skills key={data._id} skills={data}/>))
             }
             </div>
           </div>
