@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Compic from "../../assets/Compic.jpg";
 import ImgCard from "../../components/ImgCard.jsx";
-import Skills from "../../components/Skills.jsx";
 import Experiences from "../../components/Experiences.jsx";
 import "./individual.css";
 import {
   apiGetAllSkills,
   apiGetUserSkills,
 } from "../../services/skills.services.js";
+import SkillCard from "../../components/SkillCard.jsx";
 
 const ComfortPage = () => {
   const ExperiencesData = [
@@ -149,7 +149,7 @@ const ComfortPage = () => {
             </div>
             <div className="w-full lgl:w-1/2">
             {
-            comskills.length>0 && comskills.map((data) => (<Skills key={data._id} skills={data}/>))
+            comskills.length>0 && comskills.map((data) => (<SkillCard key={data._id} skills={data}/>))
             }
             </div>
           </div>
@@ -163,7 +163,7 @@ const ComfortPage = () => {
               </h2>
             </div>
             {
-              SkillData.length>0 && SkillData.map((data, index) => (<Skills key={index} skills={data}/>))
+              SkillData.length>0 && SkillData.map((data, index) => (<SkillCard key={index} skills={data}/>))
             }
           </div>
         </div>

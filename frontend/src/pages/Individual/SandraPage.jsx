@@ -84,7 +84,7 @@ const SandraPage = () => {
       </div>
 
       {/* Skills division */}
-      <Skills />
+    
 
       {/* Experience division */}
       <Experiences experiences={ExperiencesData} />

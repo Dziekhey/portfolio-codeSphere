@@ -1,10 +1,10 @@
 // Desc: Admin Dashboard Page
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-import Skills from '../../components/Skills.jsx';
-import Achievements from '../../components/Achievements.jsx';
-import Projects from '../../components/Projects.jsx';
-import Experiences from '../../components/Experiences.jsx';
+import Skills from '../../components/DSkills.jsx';
+import Achievements from '../../components/DAchievements.jsx';
+import Projects from '../../components/DProjects.jsx';
+import Experiences from '../../components/DExperiences.jsx';
 import DashboardOverview from '../../components/DashboardOverview.jsx';
 
 const AdminDashboard = () => {
