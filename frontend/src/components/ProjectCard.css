@@ -1,0 +1,14 @@
+#card-icons{
+    font-size: 2.5rem;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#card-icons .icon:hover {
+background-color:var(--primary);
+transform: scale(1.5);
+}
+#card-icons .iconic:hover {
+background-color: var(--primary);
+transform: scale(1.5);
+}
