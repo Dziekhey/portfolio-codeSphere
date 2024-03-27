@@ -1,5 +1,11 @@
 
 import './App.css'
+
+import { Contact } from './sections/contact/Contact'
+
+
+import { Projects } from './sections/projects/projects'
+
 import ComfortPage from './pages/Individual/ComfortPage'
 import Admin from './pages/admin/Admin'
 
@@ -26,10 +32,7 @@ const App = () => {
     // </Router>
     <>
 
-    <ComfortPage />
-
-      {/* <AdminLogin /> */}
-      <AdminDashboard />
+   
 
     </>
   );
