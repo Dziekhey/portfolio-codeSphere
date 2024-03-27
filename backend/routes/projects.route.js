@@ -1,6 +1,9 @@
 import {Router} from "express"
 import db from "../db/connection.js"
 import { ObjectId } from "mongodb";
+import multer from 'multer';
+
+const upload = multer({dest: 'uploads'});
 
 const router = Router()
 const PROJECT_COLLECTION = db.collection('projects')
@@ -19,12 +22,12 @@ router.delete('/', async(req, res) => {
 
 
 // Endpoint for adding a single project
-router.post('/', async(req, res) => {
+router.post('/', upload.single('image'), async(req, res) => {
     try {
         let newProject = {
             title: req.body.title,
             description: req.body.description,
-            images: req.body.images,
+            image: req.body.image,
             live_demo: req.body.live_demo
         }
         let result = await PROJECT_COLLECTION.insertOne(newProject);
@@ -50,7 +53,7 @@ router.patch('/:id', async(req, res) => {
         $set: {
             title: req.body.title,
             description: req.body.description,
-            images: req.body.images,
+            image: req.body.image,
             live_demo: req.body.live_demo
         }
     }
