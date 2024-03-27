@@ -1,6 +1,9 @@
 import {Router} from "express"
 import db from "../db/connection.js"
 import { ObjectId } from "mongodb";
+import multer from 'multer';
+
+const upload = multer({dest: 'uploads'});
 
 const router = Router()
 const ACHIEVEMENTS_COLLECTION = db.collection('achievements')
@@ -12,13 +15,12 @@ router.get('/', async(req, res) => {
 });
 
 // Endpoint for adding a single achievement
-router.post('/', async(req, res) => {
+router.post('/', upload.single('certificate'), async(req, res) => {
     try {
         let newAchievement = {
-            type: req.body.type,
             title: req.body.title,
             description: req.body.description,
-            certificate: req.body.certificate,
+            certificate: req.body.certificate
         }
         let result = await ACHIEVEMENTS_COLLECTION.insertOne(newAchievement);
         res.send(result).status(201);
@@ -41,7 +43,6 @@ router.patch('/:id', async(req, res) => {
        const query = {_id: new ObjectId(req.params.id)} 
        const update = {
         $set: {
-            type: req.body.type,
             title: req.body.title,
             description: req.body.description,
             certificate: req.body.certificate,
