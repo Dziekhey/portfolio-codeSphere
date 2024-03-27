@@ -12,7 +12,10 @@ function App() {
 
   return (
     <>
-<Blog />
+<Navbar  />
+<Banner />
+<About />
+<Footer />
     </>
   )
 }
