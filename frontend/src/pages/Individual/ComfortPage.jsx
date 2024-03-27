@@ -84,6 +84,8 @@ const ComfortPage = () => {
       const data = skills.data.filter(
         (res) => res?.type === "Programming Languages and Libraries"
       );
+
+      
       console.log(data);
       setComskills(data);
     } catch (error) {
