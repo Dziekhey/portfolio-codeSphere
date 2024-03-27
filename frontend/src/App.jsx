@@ -1,5 +1,8 @@
 
 import './App.css'; 
+import ComfortPage from './pages/Individual/ComfortPage';
+import KennethPage from './pages/Individual/KennethPage';
+
 // import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 // import AdminDashboard from './pages/admin/AdminDashboard.jsx';
 // import AdminLogin from './components/AdminLogin.jsx';
@@ -8,6 +11,7 @@ import './App.css';
 const App = () => {
   return (
     <>
+<KennethPage />
 
     </>
     // <Router>

@@ -27,7 +27,7 @@ router.post('/', async(req, res) => {
             end_date: req.body.end_date,
             description: req.body.description,
             organisation: req.body.organisation,
-            location: req.body.location,
+            organisation_location: req.body.organisation_location,
             user_id: req.body.user_id
         }
         let result = await EXPERIENCES_COLLECTION.insertOne(newExperiences);
