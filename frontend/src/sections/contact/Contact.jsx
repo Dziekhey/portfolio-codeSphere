@@ -45,6 +45,9 @@ export const Contact = () => {
   };
 
   return (
+    <div id="contact-section">
+
+
     <section className="contact" id="connect">
       <Container>
         <Row className=" w-full flex align-items-center">
@@ -97,5 +100,6 @@ export const Contact = () => {
         </Row>
       </Container>
     </section>
+    </div>
   )
 }

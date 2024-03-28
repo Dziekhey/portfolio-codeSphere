@@ -2,8 +2,8 @@ import React from 'react'
 
 const Achievement = () => {
   return (
-    <div>
-      
+    <div id='achiever'>
+      <p>i am a winner</p>
     </div>
   )
 }

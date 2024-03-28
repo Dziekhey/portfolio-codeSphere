@@ -55,6 +55,8 @@ export default function Projects  (){
     ];
 
     return (
+        <div id="projecta">
+
         <section className="project p-20" id="projects">
             <Container>
 
@@ -62,7 +64,7 @@ export default function Projects  (){
                     {({ isVisible }) =>
                         <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                             <h2>Projects</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <p>Dive into our portfolio and discover a collection of meticulously crafted projects, each embodying innovation, creativity, and attention to detail.<br/> From web development to graphic design, explore a showcase of solutions that bring ideas to life.</p>
                             <div className="grid grid-cols-2 gap-12">
                                 {
                                     projects.map((project, index) => {
@@ -86,5 +88,6 @@ export default function Projects  (){
             </Container>
             {/* <img className="background-image-right" src={'https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=1429&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}></img> */}
         </section>
+        </div>
     )
 }

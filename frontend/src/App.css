@@ -5,7 +5,17 @@
 
 
 
+ion-icon {
+  font-size: 30px;
+}
 
 
 
-
+body {
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%) !important;
+  color: #fff !important;
+  font-family: 'Centra', sans-serif !important;
+}

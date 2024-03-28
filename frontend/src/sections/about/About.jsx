@@ -9,7 +9,7 @@ import SandraPhoto from "../../assets/Sandpic.jpg"
 
 function About() {
   return (
-    <div>
+    <div id="about-section">
       <div className="container flex justify-center mx-auto pt-16">
         <div>
 
