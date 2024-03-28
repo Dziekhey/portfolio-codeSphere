@@ -9,7 +9,7 @@ const ProjectCard = ({ title, description, imgUrl, github, webicon }) => {
 
 
         <Col sm={6} md={4}>
-            <div className='proj-imgbx'>
+            <div className='proj-imgbx mx-1'>
                 <img className='w-full h-[400px]' src={imgUrl} />
                 <div className='proj-txtx'>
                     <h4> {title} </h4>

@@ -103,6 +103,7 @@ const ComfortPage = () => {
   }, []);
 
   return (
+    
     <div id="bg">
       {/* About division */}
       <div className="flex justify-center items-center">
