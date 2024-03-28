@@ -10,7 +10,7 @@ const navigation = [
   { name: "About Us", href: "#", current: false },
   { name: "Contact Us", href: "#", current: false },
   { name: "Achievements", href: "#", current: false },
-  
+
 ];
 
 function classNames(...classes) {
@@ -39,12 +39,12 @@ export default function Navbar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="w-8 h-8 z-20" // Adjust z-index to make sure the logo appears above other elements
+                    className="w-30 h-10 z-20" // Increase width and height
                     src={Logosvg}
                     alt=""
                   />
                 </div>
-                <div className="hidden sm:ml-6 sm:block">
+                <div className="hidden sm:ml-40 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <a
@@ -103,7 +103,7 @@ export default function Navbar() {
                                     "block px-4 py-2 text-sm"
                                   )}
                                 >
-                                  Comfort Arthur 
+                                  Comfort Arthur
                                 </a>
                               )}
                             </Menu.Item>

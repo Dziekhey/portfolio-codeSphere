@@ -2,13 +2,10 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Compic from "../../assets/Compic.jpg";
 import ImgCard from "../../components/ImgCard.jsx";
-import Experiences from "../../components/Experiences.jsx";
 import "./individual.css";
-import {
-  apiGetAllSkills,
-  apiGetUserSkills,
-} from "../../services/skills.services.js";
+import { apiGetUserSkills} from "../../services/skills.services.js";
 import SkillCard from "../../components/SkillCard.jsx";
+import Experiences from '../../components/Experiences.jsx'
 
 const ComfortPage = () => {
   const ExperiencesData = [
@@ -73,21 +70,30 @@ const ComfortPage = () => {
     },
   ];
 
-  const [comskills, setComskills] = useState([]);
+  const [comfirstskills, setComfirstskills] = useState([]);
+  const [comsecondskills, setComsecondskills] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const fetchData = async (Comfort) => {
     try {
       setLoading(true);
-      const skills = await apiGetUserSkills("Comfort");
+      const firstskills = await apiGetUserSkills("Comfort");
       // console.log(skills.data);
-      const data = skills.data.filter(
+      const firstdata = firstskills.data.filter(
         (res) => res?.type === "Programming Languages and Libraries"
       );
 
+      const secondskills = await apiGetUserSkills("Comfort");
+      // console.log(secondskills.data);
+      const seconddata = secondskills.data.filter(
+        (res) => res?.type === "Software Proficiency and Frameworks"
+        );
+       
+
       
-      console.log(data);
-      setComskills(data);
+  
+      setComfirstskills(firstdata);
+      setComsecondskills(seconddata);
     } catch (error) {
       console.error(error);
     }
@@ -149,7 +155,7 @@ const ComfortPage = () => {
             </div>
             <div className="w-full lgl:w-1/2">
             {
-            comskills.length>0 && comskills.map((data) => (<SkillCard key={data._id} skills={data}/>))
+            comfirstskills.length>0 && comfirstskills.map((data) => (<SkillCard key={data._id} skills={data}/>))
             }
             </div>
           </div>
@@ -162,9 +168,11 @@ const ComfortPage = () => {
                 Software Proficiency and Frameworks
               </h2>
             </div>
+            <div className="w-full lgl:w-1/2">
             {
-              SkillData.length>0 && SkillData.map((data, index) => (<SkillCard key={index} skills={data}/>))
+              comsecondskills.length>0 && comsecondskills.map((data) => (<SkillCard key={data._id} skills={data}/>))
             }
+            </div>
           </div>
         </div>
       </div>
@@ -175,16 +183,16 @@ const ComfortPage = () => {
       {/* Contact division*/}
       <div className="p-8 border-t-4 border-black">
         <div className="text-4xl font-bold pb-3">Contact Me</div>
-        <div className="flex justify-between font-medium py-4">
-          <span>email</span>
-          <span>telephone</span>
-          <span>location</span>
+        <div className="flex justify-center space-x-10 font-medium py-4">
+          <span size="small" className='hover:scale-105 cursor-pointer'><ion-icon name="mail-outline"></ion-icon>comfortearthur69@gmail.com</span>
+          <span size="small" className='hover:scale-105 cursor-pointer'><ion-icon name="call-outline"></ion-icon>+233209062712</span>
+          <span size="small" className='hover:scale-105 cursor-pointer'><ion-icon name="location-outline"></ion-icon>East Legon, Ghana</span>
         </div>
         <div className="flex justify-center space-x-10 font-medium py-6">
-          <span>Whatsapp</span>
-          <span>Instagram</span>
-          <span>LinkedIn</span>
-          <span>github</span>
+          <a href="https://wa.me/+233501376212" className='hover:scale-105 cursor-pointer'><span size="small"><ion-icon name="logo-whatsapp"></ion-icon></span></a>
+          <span size="small" className='hover:scale-105 cursor-pointer'><ion-icon name="logo-instagram"></ion-icon></span>
+          <span size="small" className='hover:scale-105 cursor-pointer'><ion-icon name="logo-linkedin"></ion-icon></span>
+          <span size="small" className='hover:scale-105 cursor-pointer'><ion-icon name="logo-github"></ion-icon></span>
         </div>
       </div>
     </div>

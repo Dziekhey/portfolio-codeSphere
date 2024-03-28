@@ -3,7 +3,16 @@ import db from "../db/connection.js"
 import { ObjectId } from "mongodb";
 import multer from 'multer';
 
-const upload = multer({dest: 'uploads'});
+const mediaUpload = multer({dest: 'uploads', limits: {
+    fileSize: 10000000, 
+},
+fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(mp4|MPEG-4|mkv|png|jpeg|jpg|svg)$/)) {
+        return cb(new Error("Please upload a video or an image"));
+      }
+      cb(undefined, true);  
+} 
+});
 
 const router = Router()
 const BLOGS_COLLECTION = db.collection('blogs')
@@ -15,7 +24,7 @@ router.get('/', async(req, res) => {
 });
 
 // Endpoint for adding a single skill
-router.post('/', upload.single('image'), async(req, res) => {
+router.post('/', mediaUpload.single('image'), async(req, res) => {
     try {
         let newBlogs = {
             title: req.body.title,

@@ -3,7 +3,16 @@ import db from "../db/connection.js"
 import { ObjectId } from "mongodb";
 import multer from 'multer';
 
-const upload = multer({dest: 'uploads'});
+const mediaUpload = multer({dest: 'uploads', limits: {
+    fileSize: 10000000, 
+},
+fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(mp4|MPEG-4|mkv|png|jpeg|jpg|svg)$/)) {
+        return cb(new Error("Please upload a video or an image"));
+      }
+      cb(undefined, true);  
+} 
+});
 
 const router = Router()
 const PROJECT_COLLECTION = db.collection('projects')
@@ -22,7 +31,7 @@ router.delete('/', async(req, res) => {
 
 
 // Endpoint for adding a single project
-router.post('/', upload.single('image'), async(req, res) => {
+router.post('/', mediaUpload.single('image'), async(req, res) => {
     try {
         let newProject = {
             title: req.body.title,

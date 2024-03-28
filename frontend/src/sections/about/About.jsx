@@ -2,6 +2,7 @@ import React from "react";
 import KennethPhoto from "../../assets/1W7A8799.jpg"
 import ComfortPhoto from "../../assets/1W7A8880.jpg"
 import PriscillaPhoto from "../../assets/Headshot_Priscilla-Azilafu.jpg"
+import SandraPhoto from "../../assets/Sandpic.jpg"
 
 
 
@@ -45,7 +46,7 @@ text-gray-600 text-base pt-3 font-normal">The Leads role is raising the
                     knowledge sharing and collaboration.</p>
                   <div className="w-full flex
 justify-center pt-5 pb-5">
-                    <a href="javascript:void(0)"
+                    <a href="https://github.com/mrkabby"
                       className="mx-5">
                       <div>
                         <svg
@@ -66,7 +67,7 @@ feather-github">
                       className="mx-5">
                       <div>
                         <svg
-                          xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0
+                          xmlns="https://twitter.com/kabbyfbaby" width={24} height={24} viewBox="0 0
 24 24" fill="none" stroke="#718096" strokeWidth="1.5"
                           strokeLinecap="round" strokeLinejoin="round" className="feather
 feather-twitter">
@@ -77,7 +78,7 @@ feather-twitter">
                         </svg>
                       </div>
                     </a>
-                    <a href="javascript:void(0)"
+                    <a href="https://www.instagram.com/kabbyfbaeb"
                       className="mx-5">
                       <div>
                         <svg
@@ -121,7 +122,7 @@ text-gray-600 text-base pt-3 font-normal">The emphasis on innovation
                     establishing global benchmarks in product design and development.</p>
                   <div className="w-full flex
 justify-center pt-5 pb-5">
-                    <a href="javascript:void(0)"
+                    <a href="https://github.com/Ewuradj"
                       className="mx-5">
                       <div>
                         <svg
@@ -182,7 +183,7 @@ shadow-md bg-white">
 flex justify-center">
                   <div className="h-32 w-32">
                     <img
-                      src="https://cdn.tuk.dev/assets/photo-1566753323558-f4e0952af115.jfif"
+                      src={SandraPhoto}
                       alt className="rounded-full object-cover h-full w-full shadow-md" />
                   </div>
                 </div>
@@ -197,7 +198,7 @@ text-gray-600 text-base pt-3 font-normal">Our services encompass the
                     or mold. We can also be a part of the restoration.</p>
                   <div className="w-full flex
 justify-center pt-5 pb-5">
-                    <a href="javascript:void(0)"
+                    <a href="https://github.com/Dziekhey"
                       className="mx-5">
                       <div>
                         <svg
@@ -273,7 +274,7 @@ text-gray-600 text-base pt-3 font-normal">An avid open-source
                     experience in the field.</p>
                   <div className="w-full flex
 justify-center pt-5 pb-5">
-                    <a href="javascript:void(0)"
+                    <a href="https://github.com/Pazil24"
                       className="mx-5">
                       <div>
                         <svg

@@ -20,7 +20,7 @@ const ProjectCard = ({ title, description, imgUrl, github, webicon }) => {
                         <div className='icon'>
                             <a className="icons" href={"https://hudams.net/"} target="_blank" rel="noopener noreferrer">
 
-                                <img src={webicon} alt="" className='h-8 w-8 ' />
+                                <img src={webicon} alt="" className='h-8     w-8 ' />
 
                             </a>
                         </div>
