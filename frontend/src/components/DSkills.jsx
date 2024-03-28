@@ -148,8 +148,9 @@ const Skills = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4 bg-blue-200 text-center p-3">Skills</h2>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4 bg-gray-200 text-center p-3">Skills</h1>
+      <h2 className="text-xl font-semibold">Add a New Skill or Update a Skill</h2>
       <form onSubmit={editingSkill ? updateSkill : addSkill} className="space-y-4">
         <input type="text" value={newSkill} onChange={(e) => setNewSkill(e.target.value)} placeholder="Skill Name" className="border p-2 rounded w-full" />
         <input type="number" value={newProficiency} onChange={(e) => setNewProficiency(e.target.value)} placeholder="Proficiency (%)" className="border p-2 rounded w-full" />

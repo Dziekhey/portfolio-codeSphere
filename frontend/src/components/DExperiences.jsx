@@ -39,7 +39,8 @@ const Experiences = () => {
   };
 
   return (
-    <div>
+    <div className="p-4">
+    <h1 className="text-2xl font-bold mb-4 bg-gray-200 text-center p-3">Experiences</h1>
       <h2 className="text-xl font-semibold">Add a New Experience</h2>
       <form onSubmit={addExperience} className="space-y-4">
         <div>

@@ -8,14 +8,15 @@ const DashboardOverview = () => {
     { name: 'Skills', path: '/admin/skills', description: 'Manage your skills' },
     { name: 'Achievements', path: '/admin/achievements', description: 'Track your achievements' },
     { name: 'Projects', path: '/admin/projects', description: 'Organize your projects' },
-    { name: 'Experiences', path: '/admin/experiences', description: 'Record your work experiences' }
+    { name: 'Experiences', path: '/admin/experiences', description: 'Record your work experiences' },
+    { name: 'Blogs', path: '/admin/blogs', description: 'Share your insights', count: 12 }
   ];
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Welcome to the Admin Dashboard</h2>
-      <p className="mb-8">This is your admin dashboard where you can manage skills, achievements, projects, and experiences.</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <h2 className="text-2xl font-bold mb-4 p-4">Welcome to the Admin Dashboard</h2>
+      <p className="p-2 mb-8">This is your admin dashboard where you can manage skills, achievements, projects, and experiences.</p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {dashboardItems.map((item) => (
           <div key={item.name} className="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-md flex items-center space-x-4">
             <div>

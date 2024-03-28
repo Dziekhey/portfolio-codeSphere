@@ -1,6 +1,8 @@
 // Desc: Admin Dashboard Page
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { CgProfile } from 'react-icons/cg';
+import { FiLogOut } from 'react-icons/fi';
 import Skills from '../../components/DSkills.jsx';
 import Achievements from '../../components/DAchievements.jsx';
 import Projects from '../../components/DProjects.jsx';
@@ -11,7 +13,15 @@ import Blogs from '../../components/DBlogs.jsx';
 const AdminDashboard = () => {
   return (
     <Router>
-      <div className="flex">
+      <div className="admin-dashboard">
+      <nav className="admin-nav">
+          <h1>CodeSphere Admin Dashboard</h1>
+          <div className="nav-icons">
+            <CgProfile size={24} />
+            <FiLogOut size={24} />
+          </div>
+        </nav>
+        <div className="content-wrapper">
         <aside className="w-64" aria-label="Sidebar">
           <div className="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
             <ul className="space-y-2">
@@ -46,6 +56,7 @@ const AdminDashboard = () => {
             <Route path="/admin/blogs" element={<Blogs />} />
           </Routes>
         </main>
+        </div>
       </div>
     </Router>
   );

@@ -32,6 +32,7 @@ const Achievements = () => {
 
   return (
     <div className="p-4">
+    <h1 className="text-2xl font-bold mb-4 bg-gray-200 text-center p-3">Achievements</h1>
       <h2 className="text-lg font-semibold">Add a New Achievement</h2>
       <form onSubmit={handleSubmit} className="my-4 space-y-2">
         <input

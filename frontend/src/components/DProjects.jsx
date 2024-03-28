@@ -20,7 +20,8 @@ const Projects = () => {
   };
 
   return (
-    <div>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4 bg-gray-200 text-center p-3">Projects</h1>
       <h2 className="text-xl font-semibold">Add a New Project</h2>
       <form onSubmit={addProject} className="space-y-4">
         <div>

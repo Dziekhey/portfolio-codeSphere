@@ -45,6 +45,7 @@ const Blogs = () => {
 
   return (
     <div className="container">
+    <h1 className="text-2xl font-bold mb-4 bg-gray-200 text-center p-3">Blogs</h1>
       <h2 className="text-2xl font-bold mb-6">Add a New Blog</h2>
       <form onSubmit={addBlog} className="mb-8">
         <input

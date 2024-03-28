@@ -110,6 +110,127 @@ df-messenger {
   
 
 
+/* Admin Dashboard css */
+/* Base styles for the dashboard layout */
+.admin-dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
+.admin-nav {
+  background-color: #2d3748; /* Dark background for the nav bar */
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.admin-nav h1 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Sidebar and Main Content Wrapper */
+.content-wrapper {
+  display: flex;
+  flex-grow: 1; /* Takes up all available space */
+}
+
+
+.sidebar {
+  background-color: #1a202c;
+  color: #cbd5e0;
+  width: 250px;
+  flex-shrink: 0;
+  transition: width 0.3s ease;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a:focus {
+  background-color: #4a5568;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #edf2f7;
+  width: 250px; /* Adjust based on your design */
+  min-width: 250px;
+}
+
+
+
+/* Grid layout for the dashboard overview */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px; /* Smaller sidebar */
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    order: -1; /* Sidebar goes on top */
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr; /* 1 column on small screens */
+  }
+
+  .nav-icons {
+    gap: 10px;
+  }
+}
 
 
