@@ -1,4 +1,3 @@
-
 import React from "react";
 import ExperienceCard from "./ExperienceCard";
 import { motion } from "framer-motion";
@@ -12,26 +11,12 @@ const Experiences = ({ experiences }) => {
         animate={{ opacity: 1, transition: { duration: 0.5 } }}
         className=""
       >
-        <div className="flex w-full">
-          <div className="w-1/2">
-            <h2 className="text-4xl font-bold">Educational Experience</h2>
-          </div>
-          <div className="w-1/2 ">
-            <h2 className="text-4xl font-bold">Work Experience</h2>
-          </div>
+        <div className="flex w-full py-5">
+          <h2 className="text-4xl font-bold">Experiences</h2>
         </div>
+
         <div className="">
           <div className="">
-            {
-              // eslint-disable-next-line react/prop-types
-              experiences.length > 0 &&
-                experiences.map((experience, index) => (
-                  <ExperienceCard  />
-                ))
-            }
-          </div>
-          <div className="">
-          
             {
               // eslint-disable-next-line react/prop-types
               experiences.length > 0 &&
@@ -43,7 +28,7 @@ const Experiences = ({ experiences }) => {
         </div>
       </motion.div>
     </div>
-  )
+  );
 };
 
 export default Experiences;

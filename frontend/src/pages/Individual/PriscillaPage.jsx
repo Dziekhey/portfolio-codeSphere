@@ -1,12 +1,14 @@
-import React from 'react';
-import Prilpic from '../../assets/Prilpic.jpg'
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import ImgCard from "../../components/ImgCard.jsx";
-import Skills from "../../components/Skills.jsx";
-import Experiences from "../../components/Experiences.jsx";
 import "./individual.css";
+import { apiGetUserSkills } from "../../services/skills.services.js";
+import SkillCard from "../../components/SkillCard.jsx";
+import Experiences from "../../components/Experiences.jsx";
+import { apiGetUserExperiences } from "../../services/experiences.services.js";
+import Prilpic from "../../assets/Prilpic.jpg";
 
 const PriscillaPage = () => {
-
   const ExperiencesData = [
     {
       type: "Education",
@@ -50,62 +52,137 @@ const PriscillaPage = () => {
     },
   ];
 
+  const [prilafirstskills, setPrilafirstskills] = useState([]);
+  const [prilasecondskills, setPrilasecondskills] = useState([]);
+  const [comexperience, setComexperience] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const firstskills = await apiGetUserSkills("Priscilla");
+      // console.log(skills.data);
+      const firstdata = firstskills.data.filter(
+        (res) => res?.type === "Programming Languages and Libraries"
+      );
+
+      const secondskills = await apiGetUserSkills("Priscilla");
+      // console.log(secondskills.data);
+      const seconddata = secondskills.data.filter(
+        (res) => res?.type === "Software Proficiency and Frameworks"
+      );
+
+      const experiences = await apiGetUserExperiences('Comfort')
+      const data = experiences.data
+
+      setPrilafirstskills(firstdata);
+      setPrilasecondskills(seconddata);
+      setComexperience(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div id="bg">
-    {/* About division */}
-    <div className="flex justify-center items-center">
-      <h1 className="text-7xl font-extrabold py-6">ABOUT PRISCILLA</h1>
-    </div>
-    <div className="flex flex-row">
-      <div className="shrink-0 w-96">
-        <ImgCard Image={Prilpic} />
-      </div>
-      <div className="shrink w-150 flex text-center">
-        <p className="py-20 px-10">
-          Hello! I'm Sandra, an alumnus of the University of Ghana, Legon,
-          where I majored in Nutrition and Food Science. Currently, I'm
-          embarking on an exciting journey as a web developer trainee at MEST
-          Africa. This dynamic blend of my academic background and current
-          pursuit in technology reflects my passion for interdisciplinary
-          exploration and innovation. With a solid foundation in nutrition
-          science, I bring a unique perspective to the realm of web
-          development, striving to merge these diverse fields to create
-          meaningful digital solutions. My overarching goal is to carve a
-          fulfilling career path in web development, leveraging my
-          comprehensive skill set to contribute positively to the
-          ever-evolving tech landscape. Beyond coding, I'm deeply committed to
-          continuous learning and community engagement, believing in the
-          transformative power of collaboration. I am enthusiastic about
-          connecting with like-minded individuals who share my zeal for growth
-          and exploration. Join me on this exhilarating journey as we navigate
-          the boundless opportunities of technology, driven by curiosity,
-          creativity, and a relentless pursuit of excellence.
-        </p>
-      </div>
-    </div>
+      <div className="mx-20">
+        {/* About division */}
+        <div className="flex justify-center items-center"></div>
+        <div className="flex flex-row">
+          <div className="shrink-0 w-96">
+            <ImgCard Image={Prilpic} />
+          </div>
+          <motion.div animate={{ x: [0, 100, 0] }}>
+            <div className="shrink w-120 text-justify">
+              <div className=" ">
+                <h1 className="text-7xl font-extrabold py-6">ABOUT ME</h1>
+              </div>
+              <p className="py-20 ">
+                Hello! I'm Sandra, a dedicated web developer passionate about creating elegant and efficient digital solutions. With a background in front-end and back-end development, I bring a comprehensive skill set to every project I undertake. From conceptualization to execution, I thrive on turning ideas into functional, user-centric websites. My attention to detail ensures that every line of code is meticulously crafted, resulting in seamless user experiences. Collaboration is at the heart of my process, and I excel at working closely with clients and teammates to bring their visions to life. With a constant drive for learning and improvement, I am committed to staying at the forefront of web development trends and technologies.
+              </p>
+            </div>
+          </motion.div>
+        </div>
 
-    {/* Skills division */}
-    <Skills />
+        {/* Skills division */}
+        <div className="p-8">
+          <h1 className="text-5xl font-medium pt-8">Skills</h1>
+          <div className="w-full mx-24 flex lgl:flex-row gap-10 lgl:gap-20">
+            <div className="w-1/2 lgl:w-1/2">
+              <div className="py-12 font-titleFont flex flex-col gap-4">
+                <p className="text-sm text-designColor tracking-[4px] uppercase">
+                  Features
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold">
+                  Programming Languages and Libraries
+                </h2>
+              </div>
+              <div className="w-full lgl:w-1/2">
+                {prilafirstskills.length > 0 &&
+                  prilafirstskills.map((data) => (
+                    <SkillCard key={data._id} skills={data} />
+                  ))}
+              </div>
+            </div>
+            <div className="w-1/2 lgl:w-1/2">
+              <div className="py-12 font-titleFont flex flex-col gap-4">
+                <p className="text-sm text-designColor tracking-[4px] uppercase">
+                  Features
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold">
+                  Software Proficiency and Frameworks
+                </h2>
+              </div>
+              <div className="w-full lgl:w-1/2">
+                {prilasecondskills.length > 0 &&
+                  prilasecondskills.map((data) => (
+                    <SkillCard key={data._id} skills={data} />
+                  ))}
+              </div>
+            </div>
+          </div>
+        </div>
 
-    {/* Experience division */}
-    <Experiences experiences={ExperiencesData} />
+        {/* Experience division */}
+        <Experiences experiences={comexperience} />
 
-    {/* Contact division*/}
-    <div className="p-8 border-t-4 border-black">
-      <div className="text-4xl font-bold pb-3">Contact Me</div>
-      <div className="flex justify-between font-medium py-4">
-      <span>email</span>
-      <span>telephone</span>
-      <span>location</span>
-      </div>
-      <div className="flex justify-center space-x-10 font-medium py-6">
-      <span>Whatsapp</span>
-      <span>Instagram</span>
-      <span>LinkedIn</span>
-      <span>github</span>
+        {/* Contact division*/}
+        <div className="p-8 border-t-4 border-black">
+          <div className="text-4xl font-bold pb-3">Contact Me</div>
+          <div className="flex justify-center space-x-10 font-medium py-4">
+            <span size="small" className="hover:scale-105 cursor-pointer">
+              <ion-icon name="mail-outline"></ion-icon>azilafupriscilla@gmail.com
+            </span>
+            <span size="small" className="hover:scale-105 cursor-pointer">
+              <ion-icon name="call-outline"></ion-icon>+233203881856
+            </span>
+            <span size="small" className="hover:scale-105 cursor-pointer">
+              <ion-icon name="location-outline"></ion-icon>Pantang P&T, Ghana
+            </span>
+          </div>
+          <div className="flex justify-center space-x-10 font-medium py-6">
+            <a
+              href="https://wa.me/+233203881856"
+              className="hover:scale-105 cursor-pointer"
+            >
+              <span size="small">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+              </span>
+            </a>
+            <span size="small" className="hover:scale-105 cursor-pointer">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </span>
+            <span size="small" className="hover:scale-105 cursor-pointer">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </span>
+            <span size="small" className="hover:scale-105 cursor-pointer">
+              <ion-icon name="logo-github"></ion-icon>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 

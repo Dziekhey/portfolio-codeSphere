@@ -26,7 +26,7 @@ const App = () => {
 <Projects/>
 <Footer />
 
-<KennethPage />
+<ComfortPage />
 
     </>
     

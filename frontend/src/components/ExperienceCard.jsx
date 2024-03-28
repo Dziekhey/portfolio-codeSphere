@@ -8,30 +8,28 @@ const ExperienceCard = ({ experience }) => {
   return (
     <div className="">
     <VerticalTimeline>
-  <VerticalTimelineElement
-    className="vertical-timeline-element--work"
-    contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-    contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-    date="2011 - present"
-    iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+    <VerticalTimelineElement
+    className="vertical-timeline-element--education"
+    date={experience.start_date}
+    iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
     icon=''
   >
-    <h3 className="vertical-timeline-element-title">Creative Director</h3>
-    <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
+    <h3 className="vertical-timeline-element-title">{experience.title}</h3>
+    <h4 className="vertical-timeline-element-subtitle">{experience.organisation}</h4>
     <p>
-      Creative Direction, User Experience, Visual Design, Project Management, Team Leading
+      {experience.description}
     </p>
   </VerticalTimelineElement>
   <VerticalTimelineElement
     className="vertical-timeline-element--education"
-    date="April 2013"
+    date={experience.start_date}
     iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
     icon=''
   >
-    <h3 className="vertical-timeline-element-title">Content Marketing for Web, Mobile and Social Media</h3>
-    <h4 className="vertical-timeline-element-subtitle">Online Course</h4>
+    <h3 className="vertical-timeline-element-title">{experience.title}</h3>
+    <h4 className="vertical-timeline-element-subtitle">{experience.organisation}</h4>
     <p>
-      Strategy, Social Media
+      {experience.description}
     </p>
   </VerticalTimelineElement>
   </VerticalTimeline>
