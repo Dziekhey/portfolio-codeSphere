@@ -6,6 +6,7 @@ import Achievements from '../../components/DAchievements.jsx';
 import Projects from '../../components/DProjects.jsx';
 import Experiences from '../../components/DExperiences.jsx';
 import DashboardOverview from '../../components/DashboardOverview.jsx';
+import Blogs from '../../components/DBlogs.jsx';
 
 const AdminDashboard = () => {
   return (
@@ -29,6 +30,9 @@ const AdminDashboard = () => {
               <li>
                 <Link to="/admin/experiences" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text:white hover:bg-gray-100 dark:hover:bg-gray-700">Experiences</Link>
               </li>
+              <li>
+                <Link to="/admin/blogs" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text:white hover:bg-gray-100 dark:hover:bg-gray-700">Blogs</Link>
+              </li>
             </ul>
           </div>
         </aside>
@@ -39,6 +43,7 @@ const AdminDashboard = () => {
             <Route path="/admin/achievements" element={<Achievements />} />
             <Route path="/admin/projects" element={<Projects />} />
             <Route path="/admin/experiences" element={<Experiences />} />
+            <Route path="/admin/blogs" element={<Blogs />} />
           </Routes>
         </main>
       </div>

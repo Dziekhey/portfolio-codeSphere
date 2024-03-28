@@ -2,33 +2,55 @@
 import React, { useState } from 'react';
 
 const Projects = () => {
-  const [project, setProject] = useState('');
-  const [projectsList, setProjectsList] = useState(['Portfolio Website', 'E-commerce Platform']);
+  const [projects, setProjects] = useState([]);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [image, setImage] = useState('');
+  const [liveDemo, setLiveDemo] = useState('');
 
-  const handleSubmit = (e) => {
+  const addProject = (e) => {
     e.preventDefault();
-    setProjectsList([...projectsList, project]);
-    setProject('');
+    const newProject = { title, description, image, liveDemo };
+    setProjects([...projects, newProject]);
+    // Reset fields
+    setTitle('');
+    setDescription('');
+    setImage('');
+    setLiveDemo('');
   };
 
   return (
-    <div className="p-4">
-      <h2 className="text-lg font-semibold">Add a New Project</h2>
-      <form onSubmit={handleSubmit} className="my-4">
-        <input
-          className="border-2 border-gray-200 rounded p-2 mr-2"
-          type="text"
-          placeholder="Project name"
-          value={project}
-          onChange={(e) => setProject(e.target.value)}
-        />
+    <div>
+      <h2 className="text-xl font-semibold">Add a New Project</h2>
+      <form onSubmit={addProject} className="space-y-4">
+        <div>
+          <label>Title</label>
+          <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="border-2 p-2 rounded w-full" />
+        </div>
+        <div>
+          <label>Description</label>
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} className="border-2 p-2 rounded w-full"></textarea>
+        </div>
+        <div>
+          <label>Image URL</label>
+          <input type="text" value={image} onChange={(e) => setImage(e.target.value)} className="border-2 p-2 rounded w-full" />
+        </div>
+        <div>
+          <label>Live Demo Link</label>
+          <input type="url" value={liveDemo} onChange={(e) => setLiveDemo(e.target.value)} className="border-2 p-2 rounded w-full" />
+        </div>
         <button type="submit" className="p-2 bg-blue-500 text-white rounded">Add Project</button>
       </form>
       <div>
         <h3 className="text-md font-semibold">Projects</h3>
         <ul>
-          {projectsList.map((project, index) => (
-            <li key={index} className="my-2">{project}</li>
+          {projects.map((project, index) => (
+            <li key={index} className="my-2">
+              <div>Title: {project.title}</div>
+              <div>Description: {project.description}</div>
+              {project.image && <img src={project.image} alt={project.title} className="max-w-xs mt-2" />}
+              {project.liveDemo && <div>Live Demo: <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:text-blue-700">View</a></div>}
+            </li>
           ))}
         </ul>
       </div>
@@ -37,3 +59,4 @@ const Projects = () => {
 };
 
 export default Projects;
+
