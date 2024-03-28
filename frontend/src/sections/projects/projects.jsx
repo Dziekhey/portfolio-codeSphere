@@ -11,7 +11,7 @@ import React from 'react'
 import TrackVisibility from 'react-on-screen';
 
 
-export const Projects = () => {
+export default function Projects  (){
 
     const projects = [
         {
