@@ -4,12 +4,12 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logosvg from "../../assets/codesphere-light.svg";
 
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Projects", href: "#", current: false },
-  { name: "Blogs", href: "#", current: false },
-  { name: "About Us", href: "#", current: false },
-  { name: "Contact Us", href: "#", current: false },
-  { name: "Achievements", href: "#", current: false },
+  { name: "Dashboard", href: "AdminLogin", current: true },
+  { name: "Projects", href: "#projecta", current: false },
+  { name: "Blogs", href: "#bloger", current: false },
+  { name: "About Us", href: "#about-section", current: false },
+  { name: "Achievements", href: "#achiever", current: false },
+  { name: "Contact Us", href: "#contact-section", current: false },
 
 ];
 

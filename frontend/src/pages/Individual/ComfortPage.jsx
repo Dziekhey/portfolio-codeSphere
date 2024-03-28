@@ -87,6 +87,7 @@ const ComfortPage = () => {
   }, []);
 
   return (
+
     <div id="bg" >
       <div className="mx-20">
       {/* About division */}
